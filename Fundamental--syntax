@@ -1,0 +1,42 @@
+#command syntas: verb + noun
+--Get-Item -Detailed 
+--Remove-Item
+--Set-Item #tab after each letter to scroll through the list
+--Get-Host
+--Get-Item C:\*
+--Get-LocalUser
+#connect remotely to another pc w/in a domain
+#used for deploying software
+Enter-PSSession DC01
+# defining variable by $
+$var = Get-Item C:\Windows\*
+$var
+update-help 
+
+Get-command #enumerate list of command help 
+  #get-command --> gcm -Module [module name]
+get-alias
+add-computer -DomainName [name.local] -LocalCredential [admin, rwx]
+
+#get all users: 
+get-ADUser -filter
+
+Sample script:
+$groups = Get-ADGroup -LDAPFilter "(name=*)"
+$groups
+
+gcm *member*
+get-ADGroupmember -Identity Administrators
+
+foreach ($group in $groups) {
+    Get-ADGroupMember -Identity $group
+}
+
+alias echo
+foreach ($group in $group) {
+    write-output "...."
+    write-output "...."
+    Get-ADGroupMember -Identity $group
+    write-output "-----end----"
+    
+}
