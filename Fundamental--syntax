@@ -14,7 +14,9 @@ multiple powershell command at once:
 
 **get help popup window: 
     get-help get-service -ShowWindow
-    
+ 
+ **to redirect or pipe to a file:
+      get-service | out-file -Filepath c:\[filename]
     
 --Remove-Item
 --Set-Item #tab after each letter to scroll through the list
