@@ -17,6 +17,7 @@ multiple powershell command at once:
  
  **to redirect or pipe to a file:
       get-service | out-file -Filepath c:\[filename]
+      get-service | ConvertTo-html -Property Name,status | out-file c:\test.html
     
 --Remove-Item
 --Set-Item #tab after each letter to scroll through the list
