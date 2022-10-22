@@ -1,10 +1,39 @@
-#command syntas: verb + noun
---Get-Item -Detailed 
+#command syntax: verb + noun -[argument sa: force to coerce] : 
+      sa: update-help -Force 
+          get-help | measure
+      multiple get sa: get-help get-service -[detailed, or -examples, or online for online help]
+                                get-adcomputer 
+ 
+      sa: get-eventlog -logname system -[newest, oldest] 3 -EntryType error -computerName dc,s1,s2
+
+multiple powershell command at once: 
+    cls; help about_eventlogs
+    
+--Get-Item -Detailed : get-alias -definition get-process
+--get-help [*command*]: sa: get-help *service*
+
+**get help popup window: 
+    get-help get-service -ShowWindow
+    
+    
 --Remove-Item
 --Set-Item #tab after each letter to scroll through the list
 --Get-Host
 --Get-Item C:\*
 --Get-LocalUser
+--Clear--[noun, host, content]
+    --[verb:set, start, stop, suspsend, resume, restart, new----then noun (service, content)]
+--Start--[program, software, sa: start-VM]
+      sa: Start-Service 
+
+
+config network:
+ping [options]: ipconfig /all
+  ping 
+
+Directly run programs w/name
+SA: notepad, calc, mspaint [just type program name]
+
 #connect remotely to another pc w/in a domain
 #used for deploying software
 Enter-PSSession DC01
