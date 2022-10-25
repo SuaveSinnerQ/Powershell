@@ -103,7 +103,7 @@ I. How to read the language: help samples from MS.com/library
      B. Pipe to out-file:
             sa: get-service | out-file c:\service.js
                 get-sevice | format-[list,table,object] <string>[argument1, argument2, argument3, etc: arg is csv]
-     
+                get-item | select-object * | out-gridview 
      
      C. PS function: {$...}
         sa: Function divide
@@ -114,4 +114,6 @@ I. How to read the language: help samples from MS.com/library
             ISE: to run PS script (practice) has intellisense 
          gridview: out-file to a gui env 
             sa: get-service | out-gridview
-            
+      
+      D. Running PowerShell Remotely 
+         
