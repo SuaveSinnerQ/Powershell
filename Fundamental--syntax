@@ -1,3 +1,5 @@
+#script samples: gallery.technet.microsoft.com/script/center/site/search 
+
 #command syntax: verb + noun -[argument sa: force to coerce] : -name   ArgumentString
          SA:      get - service                                -name   "*net*"
                       both: cmd                                   both: parameter
@@ -116,4 +118,29 @@ I. How to read the language: help samples from MS.com/library
             sa: get-service | out-gridview
       
       D. Running PowerShell Remotely 
+ 
+ ##Remote script in ps has to be digitally signed
+ 
+ Powershell on Premises & Online
+      A. Finding & installing modules:
+         get-modules -listavailable | out-ShowWindow 
+         #manualy load module
+               sa: import-module -name applocker
+                   get-ExecutionPolicy -name[restricted, unrestricted, etc] | out-ISE 
+      B. Server Cmdlets: (verb: add, get, subtract::noun: WBPolicy]
+                  sa: assign var:
+                          $policy = new-WBPolicy
+                          $FileSpec = New-WBFileSpec -FileSpec C:\samples
+                          Add-WBFileSpec -Policy $policy -FileSpec $filespec 
+                          $backupLocation = New-WBBackupTarget -VolumePath Q:
+                          Add-WBBackupTarget -Policy $policy -Target $backupLocation
+                          Set-WBSchedule -Policy $policy 09:00 
+                          Set-WBPolicy -Policy $policy
+                          $BUpolicy = get-WBPolicy
+       C. Office 365 & PS
+         2ways: Azure AD PS for graph module
+                  install-module -name AzureAD
+                Microsoft Azure Active Directory Module for Windows PS
+                install-module MSOnline
+                
          
