@@ -1,7 +1,12 @@
-#command syntax: verb + noun -[argument sa: force to coerce] : 
+#command syntax: verb + noun -[argument sa: force to coerce] : -name   ArgumentString
+         SA:      get - service                                -name   "*net*"
+                      both: cmd                                   both: parameter
+                  sa: get-service -name Audiosrv
+                      install-module az -[pkg name] -scope currentuser
+                      
       sa: update-help -Force 
           get-help | measure
-      multiple get sa: get-help get-service -[detailed, or -examples, or online for online help]
+      multiple get sa: get-help get-service -[detailed same as full, or -examples, or online for online help]
                                 get-adcomputer 
  
       sa: get-eventlog -logname system -[newest, oldest] 3 -EntryType error -computerName dc,s1,s2
@@ -43,7 +48,8 @@ Enter-PSSession DC01
 # defining variable by $
 $var = Get-Item C:\Windows\*
 $var
-update-help 
+update-help : save-help
+
 
 Get-command #enumerate list of command help 
   #get-command --> gcm -Module [module name]
@@ -70,5 +76,42 @@ foreach ($group in $group) {
     write-output "...."
     Get-ADGroupMember -Identity $group
     write-output "-----end----"
-    
 }
+
+
+PS: Excercise Files: 
+Built-in MS products: VMware, Citrix
+
+I. How to read the language: help samples from MS.com/library 
+       get-service set-VM (configure VM) [-name]
+      
+      a. Get-Service  -name  "*net*" 
+            cmd         parameter
+            sa prop names: status [stopped, running]
+                           name   [NetLogon, Netman]
+                      DisplayName [NetLogon, Network Connections]
+            yield: prop names & prop values    
+            
+            
+            get-service & get-member
+            get-service | where-object {$_.status -ne "stopped"}
+            sa: get-service s* | sort-object status -descending
+                get-service | stop-service -confirm
+                get-service -computername webserver -RequiredServices
+            get-member 
+            
+     B. Pipe to out-file:
+            sa: get-service | out-file c:\service.js
+                get-sevice | format-[list,table,object] <string>[argument1, argument2, argument3, etc: arg is csv]
+     
+     
+     C. PS function: {$...}
+        sa: Function divide
+            { $divide = [int](10/3)
+            write-output "$divide"
+            }
+         PS gui: ISE out-file ise
+            ISE: to run PS script (practice) has intellisense 
+         gridview: out-file to a gui env 
+            sa: get-service | out-gridview
+            
