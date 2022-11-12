@@ -143,4 +143,12 @@ I. How to read the language: help samples from MS.com/library
                 Microsoft Azure Active Directory Module for Windows PS
                 install-module MSOnline
                 
+             
+             
+   II. PS1 Script:
+         a. get-service -[specific type sa: name|ErrorAction|InputObject] 'Argument: Dnscache'
+            set var: $varviable = Get-service -Name 'Dnscache'
+            write-host $variable.name
+                       $varialbe.inputObject 
          
+P
