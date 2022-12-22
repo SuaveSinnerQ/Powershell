@@ -1,4 +1,5 @@
 #script samples: gallery.technet.microsoft.com/script/center/site/search 
+## PS with anaconda 
 
 #command syntax: verb + noun -[argument sa: force to coerce] : -name   ArgumentString
          SA:      get - service                                -name   "*net*"
